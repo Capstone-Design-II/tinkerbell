@@ -1,0 +1,7 @@
+{
+  "HOSTNAME": "<Place host name here>",
+  "ACCESS_KEY": "<Place access key here>",
+  "SECRET_ACCESS_KEY": "<Place secret access key here>",
+  "MEETING_BUCKET_NAME": "<Place bucket name for meeting files>",
+  "USER_BUCKET_NAME": "<Place bucket name for user voice>"
+}
