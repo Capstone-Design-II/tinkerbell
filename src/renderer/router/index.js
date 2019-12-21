@@ -8,11 +8,27 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: require('@/components/pages/Login').default
+      component: require('@/pages/Login').default
+    },
+    {
+      path: '/',
+      name: 'main',
+      component: require('@/pages/MainFrame').default,
+      children: [
+        {
+          path: 'writing'
+        },
+        {
+          path: 'meetings'
+        },
+        {
+          path: 'meeting/:id'
+        }
+      ]
     },
     {
       path: '*',
-      redirect: '/login'
+      redirect: '/'
     }
   ]
 })
