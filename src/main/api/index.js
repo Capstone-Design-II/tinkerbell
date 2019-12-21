@@ -17,12 +17,19 @@ const getMeetingNote = (meetingId) => {
     .then(R.prop('data'))
 }
 
+const getMeetingList = (userId) => {
+  return axios.get(`/result`)
+    .then(R.prop('data'))
+}
+
 const createMeetingNote = (fileKey, member) => {
   return axios.post(`/note`)
+    .then(R.prop('data'))
 }
 
 export default {
   registerUser,
-  getMeetingNote,
-  createMeetingNote
+  createMeetingNote,
+  getMeetingList,
+  getMeetingNote
 }

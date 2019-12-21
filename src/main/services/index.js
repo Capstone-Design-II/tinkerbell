@@ -7,19 +7,13 @@ export const registerUser = (name, id, password, voiceFilePath) => {
   })
 }
 
-export const createMeetingNote = (filePath) => {
-  return uploadMeetingFile(filePath).then((fileKey) => {
-    return api.createMeetingNote(fileKey)
-  })
+export const createMeetingNote = (filePath, members) => {
+  return uploadMeetingFile(filePath)
+    .then((fileKey) => api.createMeetingNote(fileKey, members))
 }
 
-export const registerUserVoice = (filePath) => {
-  return uploadUserFile(filePath).then((fileKey) => {
-    // request to Server
-  })
-}
-
-export const getMeetingList = () => {
+export const getMeetingList = (userId) => {
+  return api.getMeetingList(userId)
 }
 
 export const getMeetingNote = (meetingId) => {

@@ -7,9 +7,7 @@ const registerUser = (ipcMain) => {
   })
 }
 
-const registerVoice = (ipcMain) => {
-  ipcMain.handle()
-}
+const registerVoice = (_) => {}
 
 export const registerIpcMain = (ipcMain) => {
   registerUser(ipcMain)
