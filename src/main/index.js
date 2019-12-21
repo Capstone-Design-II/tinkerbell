@@ -1,6 +1,10 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+import * as R from 'ramda'
+import ipc from './ipc'
+// import * as services from './services'
+// import path from 'path'
 
 /**
  * Set `__static` path to static files in production
@@ -30,6 +34,15 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  R.forEach(
+    (m) => m.registerIpcMain(ipcMain)
+  )(ipc)
+
+  // const filePath = path.resolve(__dirname, '../../test/static/9_2.wav')
+  // services.registerUser('TEST1', 'TEST2', 'testtest', filePath)
+  //   .then(console.log)
+  //   .catch(console.error)
 }
 
 app.on('ready', createWindow)
