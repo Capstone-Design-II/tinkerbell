@@ -12,6 +12,12 @@ const registerUser = (name, id, password, voiceFileKey) => {
   }).then(R.prop('data'))
 }
 
+const login = (id, password) => {
+  /*
+    TODO: add login rest api
+   */
+}
+
 const getMeetingNote = (meetingId) => {
   return axios.get(`/result/${meetingId}`)
     .then(R.prop('data'))
@@ -29,6 +35,7 @@ const createMeetingNote = (fileKey, member) => {
 
 export default {
   registerUser,
+  login,
   createMeetingNote,
   getMeetingList,
   getMeetingNote
