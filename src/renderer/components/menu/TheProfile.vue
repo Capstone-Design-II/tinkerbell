@@ -4,16 +4,15 @@
             <img :src="imageSource" class="l-width-full">
         </div>
         <h3 class="mdc-drawer__title">{{ title }}</h3>
-        <h6 class="mdc-drawer__subtitle">
-            {{ subTitle }}
-            <span name="sub-menu"></span>
-        </h6>
+        <sub-menu></sub-menu>
     </div>
 </template>
 
 <script>
-  export default {
-    name: 'BaseProfile',
+  import SubMenu from './SubMenu'
+export default {
+    name: 'TheProfile',
+    components: {SubMenu},
     props: {
       imageSource: {
         type: String,
@@ -34,6 +33,7 @@
 <style scoped>
     .base-profile {
         padding-top: 22px;
+        padding-bottom: 15px;
     }
 .base-profile__image{
     width: 48px;
