@@ -3,6 +3,7 @@
 process.env.BABEL_ENV = 'renderer'
 
 const path = require('path')
+const glob = require('glob')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
 
@@ -44,7 +45,14 @@ let rendererConfig = {
       },
       {
         test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        use: [
+          { loader: 'vue-style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [path.resolve(__dirname, '../node_modules')]
+          }}]
       },
       {
         test: /\.sass$/,
