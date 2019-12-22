@@ -7,12 +7,12 @@
         <base-divider></base-divider>
         <div class="mdc-drawer__content">
             <nav class="mdc-list">
-                <base-menu-item text='Writing'>
+                <base-menu-item text='Writing' href="/main/writing">
                     <template v-slot:icon>
                         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
                     </template>
                 </base-menu-item>
-                <base-menu-item text="Meeting list">
+                <base-menu-item text="Meeting list" href="/main/meetings">
                     <template v-slot:icon>
                         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">speaker_notes</i>
                     </template>

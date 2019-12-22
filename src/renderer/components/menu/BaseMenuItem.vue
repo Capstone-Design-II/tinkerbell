@@ -1,8 +1,8 @@
 <template>
-    <a :class="['mdc-list-item', isActive ? 'mdc-list-item--activated': '']" :href='href' aria-current="page">
+    <router-link :to="href" :class="['mdc-list-item', isActive ? 'mdc-list-item--activated': '']" aria-current="page">
         <slot name="icon"></slot>
         <span class="mdc-list-item__text">{{ text }}</span>
-    </a>
+    </router-link>
 </template>
 
 <script>
