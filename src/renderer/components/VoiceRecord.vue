@@ -15,6 +15,7 @@ export default {
     methods: {
       submit (file) {
         console.log(file)
+        this.$emit('file:submit', file)
       }
     }
   }
