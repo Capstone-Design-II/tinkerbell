@@ -43,12 +43,15 @@ export default new Router({
           component: require('@/pages/ChangeVoice').default
         }, {
           path: 'meeting/:id'
+        }, {
+          path: '*',
+          redirect: 'writing'
         }
       ]
     },
     {
       path: '*',
-      redirect: '/main/writing'
+      redirect: '/login'
     }
   ]
 })

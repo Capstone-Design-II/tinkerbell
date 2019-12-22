@@ -11,9 +11,9 @@
                 <router-link to="/main/voice" class="mdc-list-item" role="menuitem">
                     <span class="mdc-list-item__text">Voice</span>
                 </router-link>
-                <li class="mdc-list-item" role="menuitem">
+                <router-link to="/login" class="mdc-list-item" role="menuitem">
                     <span class="mdc-list-item__text">Logout</span>
-                </li>
+                </router-link>
             </ul>
             </div>
         </div>

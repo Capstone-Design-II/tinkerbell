@@ -23,13 +23,13 @@
 </template>
 
 <script>
-  import { createNamespacedHelpers } from 'vuex'
+  import {createNamespacedHelpers} from 'vuex'
   import BaseMenuItem from './BaseMenuItem'
   import TheProfile from './TheProfile'
   import BaseDivider from '../base/BaseDivider'
-  import {} from '../../store/modules/user/types'
+  import { state } from '../../store/modules/user/types'
 
-const { mapState } = createNamespacedHelpers('user')
+  const {mapState} = createNamespacedHelpers('user')
 
   export default {
     name: 'TheMenu',
