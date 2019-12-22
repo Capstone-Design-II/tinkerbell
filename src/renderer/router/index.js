@@ -16,6 +16,11 @@ export default new Router({
       component: require('@/pages/Signup').default
     },
     {
+      path: '/registervoice',
+      name: 'registervoice',
+      component: require('@/pages/RegisterVoice').default
+    },
+    {
       path: '/main',
       name: 'main',
       component: require('@/pages/MainFrame').default,
