@@ -7,7 +7,7 @@ export const registerUser = (name, id, password, voiceFilePath) => {
 }
 
 export const login = (id, password) => {
-  return api.login(id, password)
+  return Promise.resolve('SUCCESS')
 }
 
 export const createMeetingNote = (filePath, members) => {

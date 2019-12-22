@@ -1,10 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow, ipcMain } from 'electron'
-import * as R from 'ramda'
 import ipc from './ipc'
-// import * as services from './services'
-// import path from 'path'
 
 /**
  * Set `__static` path to static files in production
@@ -19,45 +16,63 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
-function createWindow () {
-  /**
-   * Initial window options
-   */
-  mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000
+const makeSingleInstance = () => {
+  app.requestSingleInstanceLock()
+
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+    }
   })
-
-  mainWindow.loadURL(winURL)
-
-  mainWindow.on('closed', () => {
-    mainWindow = null
-  })
-
-  R.forEach(
-    (m) => m.registerIpcMain(ipcMain)
-  )(ipc)
-
-  // const filePath = path.resolve(__dirname, '../../test/static/9_2.wav')
-  // services.registerUser('TEST1', 'TEST2', 'testtest', filePath)
-  //   .then(console.log)
-  //   .catch(console.error)
 }
 
-app.on('ready', createWindow)
+const loadDemos = () => {
+  ipc.user.registerIpcMain(ipcMain)
+  ipc.meeting.registerIpcMain(ipcMain)
+}
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
+const initialize = () => {
+  makeSingleInstance()
 
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow()
+  loadDemos()
+
+  function createWindow () {
+    /**
+     * Initial window options
+     */
+    mainWindow = new BrowserWindow({
+      height: 563,
+      useContentSize: true,
+      width: 1000,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    })
+
+    mainWindow.loadURL(winURL)
+
+    mainWindow.on('closed', () => {
+      mainWindow = null
+    })
   }
-})
+
+  app.on('ready', createWindow)
+
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+      app.quit()
+    }
+  })
+
+  app.on('activate', () => {
+    if (mainWindow === null) {
+      createWindow()
+    }
+  })
+}
+
+initialize()
 
 /**
  * Auto Updater
