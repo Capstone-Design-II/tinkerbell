@@ -2,7 +2,7 @@
     <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">arrow_back</button>
+                <a @click="$router.go(-1)" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">arrow_back</a>
                 <span class="mdc-top-app-bar__title">{{title}}</span>
             </section>
         </div>
