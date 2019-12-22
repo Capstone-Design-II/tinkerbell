@@ -2,8 +2,8 @@ import { CREATE_MEETING_NOTE, GET_MEETING_LIST, GET_MEETING_NOTE } from '../../s
 import * as services from '../services'
 
 const createMeetingNote = (ipcMain) => {
-  ipcMain.handle(CREATE_MEETING_NOTE, (_, { filePath, members }) => {
-    return services.createMeetingNote(filePath, members)
+  ipcMain.handle(CREATE_MEETING_NOTE, (_, filePath) => {
+    return services.createMeetingNote(filePath)
   })
 }
 

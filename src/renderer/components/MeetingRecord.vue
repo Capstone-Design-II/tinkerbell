@@ -14,8 +14,7 @@ export default {
     components: {BaseFileInput},
     methods: {
       submit (file) {
-        console.log('MeetingNote')
-        console.log(file)
+        this.$emit('file:submit', file)
       }
     }
   }

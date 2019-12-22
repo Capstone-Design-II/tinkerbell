@@ -13,11 +13,10 @@ const mutations = {
 }
 
 const actions = {
-  [actionTypes.CREATE_MEETING_NOTE] (_, filePath, members) {
-    return ipc.meeting.createMeetingNote(filePath, members)
+  [actionTypes.CREATE_MEETING_NOTE] (_, filePath) {
+    return ipc.meeting.createMeetingNote(filePath)
   },
   [actionTypes.GET_MEETING_LIST] ({ commit }) {
-    console.log('HHHH')
     return ipc.meeting.getMeetingList()
       .then((data) => {
         commit(data.list)
