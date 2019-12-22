@@ -38,13 +38,15 @@ export default new Router({
           path: 'meetings'
         },
         {
-          path: 'meeting/:id'
+          path: 'meeting/:id',
+          name: 'meeting',
+          component: require('@/pages/DisplayScript').default
         }
       ]
     },
     {
       path: '*',
-      redirect: '/main/writing'
+      redirect: '/main/meeting/1'
     }
   ]
 })
