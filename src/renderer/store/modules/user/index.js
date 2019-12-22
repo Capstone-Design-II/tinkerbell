@@ -1,13 +1,17 @@
 import { createNamespacedHelpers } from 'vuex'
-import { mutations as mutationTypes, actions as actionTypes, NAMESPACE } from './types'
+import { state as stateTypes, mutations as mutationTypes, actions as actionTypes, NAMESPACE } from './types'
 import ipc from '../../../ipc'
 
 const state = {
-  id: null,
-  name: null
+  [stateTypes.ID]: null,
+  [stateTypes.NAME]: null
 }
 
 const mutations = {
+  [mutationTypes.INIT] (state) {
+    state[stateTypes.ID] = null
+    state[stateTypes.NAME] = null
+  },
   [mutationTypes.SET_ID] (state, id) {
     state.id = id
   },
@@ -21,19 +25,13 @@ const mutations = {
 }
 
 const actions = {
-  [actionTypes.REGISTER] (_, { name, id, password, filePath }) {
-    return ipc.user.register(name, id, password, filePath)
-  },
-  [actionTypes.LOGIN] ({ commit }, {id, password}) {
-    console.log('HI HI')
-    console.log('HI HI')
-    console.log('HI HI')
+  [actionTypes.LOGIN] (_, {id, password}) {
     return ipc.user.login(id, password)
   }
 }
 
-const { mapState, mapGetters, mapActions } = createNamespacedHelpers(NAMESPACE)
-export { mapState, mapGetters, mapActions }
+const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpers(NAMESPACE)
+export { mapState, mapGetters, mapMutations, mapActions }
 
 export default {
   namespaced: true,
