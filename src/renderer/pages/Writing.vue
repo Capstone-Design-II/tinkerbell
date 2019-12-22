@@ -5,17 +5,19 @@
 </template>
 
 <script>
-import MeetingRecord from '../components/MeetingRecord'
-export default {
-  name: 'Writing',
-  components: {MeetingRecord}
-}
+  import MeetingRecord from '../components/MeetingRecord'
+
+  export default {
+    name: 'Writing',
+    components: {MeetingRecord}
+  }
 </script>
 
 <style scoped>
-.writing{
-    padding: 35% 0;
-}
+    .writing {
+        padding: 35% 0;
+    }
+
     .writing__input {
         max-width: 300px;
     }
