@@ -42,7 +42,9 @@ export default new Router({
           name: 'reregister Voice',
           component: require('@/pages/ChangeVoice').default
         }, {
-          path: 'meeting/:id'
+          path: 'meeting/:id',
+          name: 'meeting',
+          component: require('@/pages/DisplayScript').default
         }, {
           path: '*',
           redirect: 'writing'
