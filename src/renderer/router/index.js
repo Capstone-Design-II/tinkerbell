@@ -35,7 +35,9 @@ export default new Router({
           component: require('@/pages/Paint').default
         },
         {
-          path: 'meetings'
+          path: 'meetings',
+          name: 'meetings',
+          component: require('@/pages/Meetings').default
         },
         {
           path: 'meeting/:id'
