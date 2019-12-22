@@ -1,22 +1,32 @@
 <template>
-    <li class="mdc-list-item" tabindex="0">
-            <span class="mdc-list-item__text">
-                <span class="mdc-typography--subtitle1">{{item.title}}</span>
-                <span class="mdc-list-item__secondary-text">{{item.desc}}</span>
-            </span>
-    </li>
+    <router-link class="mdc-list-item" :class="!status ? 'mdc-list-item--disabled' : ''" :to="`/main/meeting/${id}`"
+                 tabindex="0">
+        <span class="mdc-list-item__text">
+            <span class="mdc-list-item__primary-text">{{title}}</span>
+            <span class="mdc-list-item__secondary-text">{{desc}}</span>
+        </span>
+    </router-link>
 </template>
 
 <script>
   export default {
     name: 'ScriptDetail',
     props: {
-      item: {
-        type: Object,
-        default: {
-          title: 'Title',
-          desc: 'This is empty meeting'
-        }
+      title: {
+        type: String,
+        default: 'Title'
+      },
+      desc: {
+        type: String,
+        default: '-'
+      },
+      status: {
+        type: Boolean,
+        default: true
+      },
+      id: {
+        type: String,
+        default: 0
       }
     }
   }

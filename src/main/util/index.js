@@ -1,7 +1,7 @@
 import * as crypto from 'crypto'
 import * as path from 'path'
 import * as R from 'ramda'
-import date from 'date-and-time'
+import moment from 'moment'
 
 const hashString = (str) => {
   const md5 = crypto.createHash('md5')
@@ -10,7 +10,7 @@ const hashString = (str) => {
 }
 
 export const createMeetingFileKey = (filePath) => {
-  const dateToken = date.format(new Date(), 'YYMMDDHHmmss')
+  const dateToken = moment().format('YYMMDDHHmmss')
   const fileName = R.pipe(
     path.basename,
     hashString
@@ -19,7 +19,7 @@ export const createMeetingFileKey = (filePath) => {
 }
 
 export const createUserVoiceFileKey = (name, filePath) => {
-  const dateToken = date.format(new Date(), 'YYMMDDHHmmss')
+  const dateToken = moment().format('YYMMDDHHmmss')
   const fileName = hashString(name)
   return dateToken + fileName + path.extname(filePath)
 }

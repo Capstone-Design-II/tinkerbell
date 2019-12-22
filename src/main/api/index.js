@@ -19,12 +19,12 @@ const login = (id, password) => {
 }
 
 const getMeetingNote = (meetingId) => {
-  return axios.get(`/result/${meetingId}`)
+  return axios.get(`/note/${meetingId}`)
     .then(R.prop('data'))
 }
 
 const getMeetingList = () => {
-  return axios.get(`/result`)
+  return axios.get(`/note`)
     .then(R.prop('data'))
 }
 

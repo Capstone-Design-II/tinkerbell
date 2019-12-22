@@ -58,6 +58,7 @@
     "date-and-time": "^0.11.1",
     "material-components-web": "^4.0.0",
     "material-design-icons": "^3.0.1",
+    "moment": "^2.24.0",
     "ramda": "^0.26.1",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
