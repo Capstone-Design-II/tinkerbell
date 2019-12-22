@@ -11,12 +11,14 @@ export default new Router({
       component: require('@/pages/Login').default
     },
     {
-      path: '/',
+      path: '/main',
       name: 'main',
       component: require('@/pages/MainFrame').default,
       children: [
         {
-          path: 'writing'
+          path: 'writing',
+          name: 'writing',
+          component: require('@/pages/Login').default
         },
         {
           path: 'meetings'
@@ -28,7 +30,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/'
+      redirect: '/main/writing'
     }
   ]
 })
