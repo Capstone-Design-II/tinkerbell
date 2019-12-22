@@ -7,20 +7,23 @@
         </button>
         <div class="mdc-menu-surface--anchor">
             <div :class="['mdc-menu', 'mdc-menu-surface', isOpen ? 'mdc-menu-surface--open' : '']">
-            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                <router-link to="/main/voice" class="mdc-list-item" role="menuitem">
-                    <span class="mdc-list-item__text">Voice</span>
-                </router-link>
-                <router-link to="/login" class="mdc-list-item" role="menuitem">
-                    <span class="mdc-list-item__text">Logout</span>
-                </router-link>
-            </ul>
+                <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                    <router-link to="/main/voice" class="mdc-list-item" role="menuitem">
+                        <span class="mdc-list-item__text">Voice</span>
+                    </router-link>
+                    <li @click="logout" class="mdc-list-item" role="menuitem">
+                        <span class="mdc-list-item__text">Logout</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+  import {mapMutations} from '../../store/modules/user'
+  import {mutations} from '../../store/modules/user/types'
+
   export default {
     name: 'SubMenu',
     data () {
@@ -29,17 +32,22 @@
       }
     },
     methods: {
+      ...mapMutations([mutations.INIT]),
       onClick () {
         this.isOpen = !this.isOpen
+      },
+      logout () {
+        this[mutations.INIT]()
+        this.$router.push('/login')
       }
     }
   }
 </script>
 
 <style scoped>
-.sub-menu__button {
-    height: 28px;
-    display: inline-flex;
-    padding: 0;
-}
+    .sub-menu__button {
+        height: 28px;
+        display: inline-flex;
+        padding: 0;
+    }
 </style>
