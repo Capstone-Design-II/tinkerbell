@@ -8,9 +8,9 @@
         <div class="mdc-menu-surface--anchor">
             <div :class="['mdc-menu', 'mdc-menu-surface', isOpen ? 'mdc-menu-surface--open' : '']">
             <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                <li class="mdc-list-item" role="menuitem">
-                    <span class="mdc-list-item__text">Profile</span>
-                </li>
+                <router-link to="/main/voice" class="mdc-list-item" role="menuitem">
+                    <span class="mdc-list-item__text">Voice</span>
+                </router-link>
                 <li class="mdc-list-item" role="menuitem">
                     <span class="mdc-list-item__text">Logout</span>
                 </li>

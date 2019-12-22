@@ -33,13 +33,15 @@ export default new Router({
           path: 'paint',
           name: 'paint',
           component: require('@/pages/Paint').default
-        },
-        {
+        }, {
           path: 'meetings',
           name: 'meetings',
           component: require('@/pages/Meetings').default
-        },
-        {
+        }, {
+          path: 'voice',
+          name: 'reregister Voice',
+          component: require('@/pages/ChangeVoice').default
+        }, {
           path: 'meeting/:id'
         }
       ]
