@@ -23,7 +23,7 @@ export default new Router({
         {
           path: 'writing',
           name: 'writing',
-          component: require('@/pages/Login').default
+          component: require('@/pages/Writing').default
         }, {
           path: 'paint',
           name: 'paint',
@@ -39,7 +39,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/main/paint'
+      redirect: '/main/writing'
     }
   ]
 })

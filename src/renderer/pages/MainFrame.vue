@@ -14,17 +14,23 @@
 <script>
   import TheMenu from '../components/menu/TheMenu'
   import TopBar from '../components/TopBar'
-export default {
+
+  export default {
     name: 'MainFrame',
     components: {TopBar, TheMenu}
   }
 </script>
 
 <style scoped>
-.main-frame-root{
-    display: flex;
-    height: 100vh;
-}
+    .main-frame-root {
+        display: flex;
+        height: 100vh;
+    }
+
+    .main-frame-app-content {
+        width: 100%;
+    }
+
     .main-frame-app__main-content {
         overflow: auto;
         height: 100%;
