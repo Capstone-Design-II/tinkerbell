@@ -1,54 +1,56 @@
 <template>
     <div class="SignIn">
-        <div class="Logo">
-            <img src="../../../static/images/fairy.png" alt="Logo is missing!">
+        <div class="GoBack">
+            <router-link to="/login" style="color: #2979ff;text-decoration: none"> <- Go back</router-link>
         </div>
         <div class="Welcome">
-            Welcome to Tinkerbell 👋
+            Create your account
         </div>
         <div class="AddressBox">
             <div class="InputBox">
                 <span class="InputTextName">Username</span><br>
-                <label>
-                    <input class="InputText" placeholder="  Input Username" v-model="username">
-                </label><br>
+                <input class="InputText" placeholder="  Input Username" v-model="username"><br>
+            </div>
+            <div class="InputBox">
+                <span class="InputTextName">Email address</span><br>
+                <input class="InputText" placeholder="  Input Email Address" v-model="email"><br>
             </div>
             <div class="InputBox">
                 <span class="InputTextName">Password</span><br>
-                <label>
-                    <input class="InputText" placeholder="  Input Password" v-model="password">
-                </label><br>
+                <input class="InputText" placeholder="  Input Password" v-model="password"><br>
             </div>
-            <button class="BlueButton" type="submit">Sign in</button>
-        </div>
-        <div class="SignInBox">
-            <span>Don't have an account? </span>
-            <router-link to="/signup" style="color: #AFAFAF"> Sign up</router-link>
-        </div>
+                <button class="BlueButton" type="submit">Sign up</button>
+            </div>
     </div>
 </template>
 
 <script>
-  export default {
-    name: 'Signin',
-    data: () => ({
-      username: '',
-      password: ''
-    }),
-    methods: {
-      onSubmit () {
-        console.log(this.username)
-        console.log(this.password)
+    export default {
+      name: 'Signup',
+      data: () => ({
+        username: '',
+        email: '',
+        password: ''
+      }),
+      methods: {
+        onSubmit () {
+          console.log(this.username)
+          console.log(this.email)
+          console.log(this.password)
+        }
       }
     }
-  }
 </script>
 
 <style scoped>
-    .Logo {
-        position: absolute; left: 449px; top: 53px;
-        width: 80px;
-        height: 80px;
+    .GoBack {
+        position: absolute; left: 24px; top: 24px;
+        width: 98px;
+        height: 20px;
+        background-color: #F7F7F7;
+        font-family: Roboto-Medium;
+        font-size: 19px;
+        color: #2979FF;
     }
     .SignIn {
         position: relative;
@@ -59,7 +61,7 @@
     .AddressBox {
         position: absolute; left: 297px; top: 196px;
         width: 375px;
-        height: 276px;
+        height: 355px;
         border-radius: 10px;
         border: 1px solid #A4A4A4;
         background-color: #FFFFFF;
@@ -98,19 +100,6 @@
         font-size: 18px;
         color: #FFFFFF;
         border-radius: 4px;
-        background-color: #2979ff;
-    }
-    .SignInBox {
-        position: absolute; left: 297px; top: 510px;
-        width: 375px;
-        height: 38px;
-        border-radius: 10px;
-        font-family: Roboto-Medium;
-        font-size: 19px;
-        text-align: center;
-        line-height: 35px;
-        color: #AFAFAF;
-        border: 1px solid #A4A4A4;
-        background-color: #F6F6F6;
+        background-color: #2979FF;
     }
 </style>
