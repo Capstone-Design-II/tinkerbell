@@ -30,10 +30,15 @@
           const weekOfMonth = m.week() - moment(m).startOf('month').week() + 1
           return `${m.format('YYYY-MM')} week ${weekOfMonth}`
         }
-        return R.map(R.evolve({
+        const formatted = R.map(R.evolve({
           title: monthWeek,
-          list: R.map(R.evolve({dateTime: date => moment(date).format('YYYY-MM-DD A h:mm:ss')}))
+          list: R.pipe(
+            R.sort(({dateTime: date1}, {dateTime: date2}) => (moment(date2) - moment(date1))),
+            R.map(R.evolve({dateTime: date => moment(date).format('YYYY-MM-DD A h:mm:ss')}))
+          )
         }))(this.scriptGroups)
+        console.log(formatted)
+        return formatted
       }
     },
     methods: {

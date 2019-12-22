@@ -8,16 +8,16 @@
         </div>
         <div class="AddressBox">
             <div class="InputBox">
-                <span class="InputTextName">Username</span><br>
-                <input class="InputText" placeholder="  Input Username" v-model="username"><br>
+                <span class="InputTextName">Name</span><br>
+                <input class="InputText" placeholder="  Input Name" v-model="username"><br>
             </div>
             <div class="InputBox">
-                <span class="InputTextName">Email address</span><br>
-                <input class="InputText" placeholder="  Input Email Address" v-model="email"><br>
+                <span class="InputTextName">Id</span><br>
+                <input class="InputText" placeholder="  Input Id" v-model="email"><br>
             </div>
             <div class="InputBox">
                 <span class="InputTextName">Password</span><br>
-                <input class="InputText" placeholder="  Input Password" v-model="password"><br>
+                <input type="password" class="InputText" placeholder="  Input Password" v-model="password"><br>
             </div>
             <button class="BlueButton" type="submit" @click="onSubmit">Sign up</button>
         </div>
