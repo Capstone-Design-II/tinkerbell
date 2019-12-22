@@ -1,8 +1,9 @@
-import { mutations as mutationTypes, actions as actionTypes } from './types'
+import {createNamespacedHelpers} from 'vuex'
+import { state as stateTypes, mutations as mutationTypes, actions as actionTypes, NAMESPACE } from './types'
 import ipc from '../../../ipc'
 
 const state = {
-  meetingList: null
+  [stateTypes.MEETING_LIST]: null
 }
 
 const mutations = {
@@ -16,6 +17,7 @@ const actions = {
     return ipc.meeting.createMeetingNote(filePath, members)
   },
   [actionTypes.GET_MEETING_LIST] ({ commit }) {
+    console.log('HHHH')
     return ipc.meeting.getMeetingList()
       .then((data) => {
         commit(data.list)
@@ -25,6 +27,9 @@ const actions = {
     return ipc.meeting.getMeetingNote(meetingId)
   }
 }
+
+const { mapState, mapGetters, mapActions } = createNamespacedHelpers(NAMESPACE)
+export { mapState, mapGetters, mapActions }
 
 export default {
   namespaced: true,

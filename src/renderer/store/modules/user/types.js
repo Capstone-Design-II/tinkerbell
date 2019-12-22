@@ -1,3 +1,6 @@
+
+export const NAMESPACE = 'user'
+
 const SET_ID = 'setId'
 const SET_NAME = 'setName'
 const SET_ALL = 'setAll'

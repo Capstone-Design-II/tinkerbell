@@ -6,5 +6,5 @@ export const register = (name, id, password, filePath) => {
 }
 
 export const login = (id, password) => {
-  return ipcRenderer.invoke(LOGIN, { id, password })
+  return ipcRenderer.invoke(LOGIN, id, password)
 }

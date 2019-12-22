@@ -1,3 +1,10 @@
+export const NAMESPACE = 'meeting'
+
+const MEETING_LIST = 'meetingList'
+export const state = {
+  MEETING_LIST
+}
+
 const SET_MEETING_LIST = 'setMeetingList'
 
 export const mutations = {
