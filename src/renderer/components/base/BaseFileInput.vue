@@ -17,7 +17,8 @@
         </div>
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
-                <button class="mdc-button mdc-button--raised mdc-layout-grid__cell" @click="submit(file)">
+                <button class="mdc-button mdc-button--raised mdc-layout-grid__cell" :disabled="file == null"
+                        @click="submit(file)">
                     <div class="mdc-button__ripple"></div>
                     <span class="mdc-button__label"> Submit </span>
                 </button>
