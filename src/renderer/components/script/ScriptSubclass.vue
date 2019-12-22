@@ -3,7 +3,7 @@
         <h3 class="mdc-typography--headline4">{{group}}</h3>
         <ul class="mdc-list">
             <template v-for="(item, index) in list">
-                <script-detail :items="item"></script-detail>
+                <script-detail :item="item"></script-detail>
                 <li v-if="index != list.length - 1" class="mdc-list-divider" role="separator"></li>
             </template>
         </ul>
