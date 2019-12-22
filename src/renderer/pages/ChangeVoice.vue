@@ -15,7 +15,7 @@ export default {
 
 <style scoped>
     .change-voice {
-        padding: 35% 0;
+        padding: 20% 0;
     }
 
     .voice-record {

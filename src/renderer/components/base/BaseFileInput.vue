@@ -1,9 +1,9 @@
 <template>
     <div class="base-file-input mdc-layout-grid">
-        <div class="base-file-input__header mdc-typography--headline6 u-text-center">
+        <h2 class="base-file-input__header mdc-typography--headline6 u-text-center">
             {{ title }}
-        </div>
-        <div class="u-text-center">
+        </h2>
+        <div class="u-text-center base-file-input-button__container">
             <button class="mdc-button mdc-button--raised base-file-input-button">
                 <div class="mdc-button__ripple"></div>
                 <slot name="button-icon"></slot>
@@ -17,12 +17,13 @@
         </div>
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
-                <button class="mdc-button mdc-button--raised mdc-layout-grid__cell" :disabled="file == null"
+                <button class="mdc-button mdc-button--raised mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop"
+                        :disabled="file == null"
                         @click="submit(file)">
                     <div class="mdc-button__ripple"></div>
                     <span class="mdc-button__label"> Submit </span>
                 </button>
-                <button class="mdc-button mdc-layout-grid__cell" @click="clear">
+                <button class="mdc-button mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop" @click="clear">
                     <div class="mdc-button__ripple"></div>
                     <span class="mdc-button__label"> Clear </span>
                 </button>
@@ -85,8 +86,12 @@
         height: 64px;
     }
 
-    .base-file-input-button__icon {
-        font-size: 32px;
+    .mdc-layout-grid__inner {
+        justify-content: center;
+    }
+
+    .base-file-input-button__container {
+        margin: 10px 0;
     }
 
     .base-file-input-button__input {

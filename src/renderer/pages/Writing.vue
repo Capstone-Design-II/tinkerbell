@@ -51,7 +51,7 @@
 
 <style scoped>
     .writing {
-        padding: 35% 0;
+        padding: 20% 0;
     }
 
     .writing__input {

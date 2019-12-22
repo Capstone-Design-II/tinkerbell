@@ -16,7 +16,7 @@ export default {
     props: {
       imageSource: {
         type: String,
-        default: 'static/images/peterpan-128.png'
+        default: 'static/images/tinkerbell-logo-big.png'
       },
       title: {
         type: String,
@@ -36,8 +36,9 @@ export default {
         padding-bottom: 15px;
     }
 .base-profile__image{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px 5px;
 }
 </style>

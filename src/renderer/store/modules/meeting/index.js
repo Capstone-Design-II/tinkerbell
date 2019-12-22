@@ -18,9 +18,6 @@ const actions = {
   },
   [actionTypes.GET_MEETING_LIST] ({ commit }) {
     return ipc.meeting.getMeetingList()
-      .then((data) => {
-        commit(data.list)
-      })
   },
   [actionTypes.GET_MEETING_NOTE] (_, meetingId) {
     return ipc.meeting.getMeetingNote(meetingId)

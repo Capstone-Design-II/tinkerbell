@@ -2,7 +2,6 @@
     <div class="mdc-list-group">
         <script-subclass v-for="scriptGroup in formattedGroups" :group="scriptGroup.title"
                          :list="scriptGroup.list" v-if="!isEmpty"></script-subclass>
-        <div v-if="isEmpty"> Empty meeting list</div>
     </div>
 </template>
 
@@ -46,34 +45,15 @@
         return m.week()
       }
       return this[actions.GET_MEETING_LIST]()
-        .catch(_ => {
-          return {
-            data: [{
-              uuid: '2333',
-              created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
-              status: 'RUNNING'
-            }, {
-              uuid: '2444',
-              created_at: moment().subtract(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
-              status: 'COMPLETED'
-            }, {
-              uuid: '2555',
-              created_at: moment().subtract(1, 'week').format('YYYY-MM-DD HH:mm:ss'),
-              status: 'COMPLETED'
-            }]
-          }
-        })
         .then((data) => {
           // date, status, uuid
           this.scriptGroups = R.pipe(
-            R.prop('data'),
-            R.map((item) => ({id: item.uuid, dateTime: item['created_at'], status: item.status})),
+            R.map((item) => ({id: item.uuid, dateTime: item.createdAt, status: item.status})),
             R.groupBy(({dateTime}) => weekInYear(dateTime)),
             R.mapObjIndexed((list, week) => ({title: week, list})),
             R.values,
             R.sort(({title: title1}, {title: title2}) => (title2 - title1))
           )(data)
-          console.log(this.scriptGroups)
         })
     }
   }
