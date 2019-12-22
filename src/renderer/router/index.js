@@ -24,6 +24,10 @@ export default new Router({
           path: 'writing',
           name: 'writing',
           component: require('@/pages/Login').default
+        }, {
+          path: 'paint',
+          name: 'paint',
+          component: require('@/pages/Paint').default
         },
         {
           path: 'meetings'
@@ -35,7 +39,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/login'
+      redirect: '/main/paint'
     }
   ]
 })
