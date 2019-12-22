@@ -2,12 +2,14 @@ import {REGISTER_USER, LOGIN} from '../../string/ipc'
 import * as services from '../services'
 
 const registerUser = (ipcMain) => {
-  ipcMain.handle(REGISTER_USER, (_, {name, id, password, voiceFilePath}) => {
+  ipcMain.handle(REGISTER_USER, (_, name, id, password, voiceFilePath) => {
+    console.log({name, id, password, voiceFilePath})
     return services.registerUser(name, id, password, voiceFilePath)
   })
 }
 
-const registerVoice = () => {}
+const registerVoice = () => {
+}
 const login = (ipcMain) => {
   ipcMain.handle(LOGIN, (_, id, password) => {
     return services.login(id, password)
