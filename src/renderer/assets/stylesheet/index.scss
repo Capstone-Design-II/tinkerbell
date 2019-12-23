@@ -1,0 +1,13 @@
+$mdc-theme-primary: #2979ff;
+$mdc-theme-secondary: #02beb2;
+
+@import "~material-components-web/material-components-web";
+@import "~material-design-icons/iconfont/material-icons.css";
+
+@import "utilities";
+@import "layouts";
+
+body {
+  margin: 0;
+  background-color: white;
+}
