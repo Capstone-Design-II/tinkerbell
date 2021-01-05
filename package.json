@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.594.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "date-and-time": "^0.11.1",
     "material-components-web": "^4.0.0",
     "material-design-icons": "^3.0.1",
